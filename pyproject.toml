@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "mnemosyne-consciousness"
+version = "0.3.0"
+description = "Consciousness extensions for Mnemosyne — TurboQuant compression, metacognition, dream consolidation, and autobiographical memory"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [{name = "BEN's Workshop"}]
+
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.12",
+    "aiosqlite>=0.19",
+    "sentence-transformers>=2.2",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
+
+[tool.setuptools.packages.find]
+include = ["mnemosyne*"]
