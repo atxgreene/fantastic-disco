@@ -23,6 +23,7 @@ import numpy as np
 from flask import Flask, render_template_string, request, jsonify
 
 from mnemosyne.consciousness.loop import ConsciousnessLoop
+from dashboard.llm_router import route_and_generate, list_available_models, LLMResponse
 
 app = Flask(__name__)
 
@@ -30,6 +31,7 @@ app = Flask(__name__)
 loop: ConsciousnessLoop | None = None
 event_loop: asyncio.AbstractEventLoop | None = None
 conversation_history: list[dict] = []
+llm_conversation: list[dict] = []  # Messages in LLM format [{role, content}]
 
 
 def get_loop() -> ConsciousnessLoop:
@@ -93,50 +95,37 @@ def api_chat():
     data = request.json or {}
     message = data.get("message", "")
     user = data.get("user", "Human")
+    force_provider = data.get("provider")  # Optional: "ollama" or "anthropic"
     if not message.strip():
         return jsonify({"error": "empty message"}), 400
 
     cl = get_loop()
     embedding = simple_embed(message)
 
+    # Phase 1-3: Perceive (metacognition, curiosity, behavioral coupling)
     start = time.monotonic()
     context = run_async(cl.perceive(message, embedding))
     perceive_ms = (time.monotonic() - start) * 1000
 
-    # Generate Mnemosyne's response based on context
-    response_parts = []
+    # Build system prompt from consciousness state
+    system_prompt = _build_system_prompt(cl, context)
 
-    # Temporal greeting on first turn
-    if cl._turn_count == 1 and context.get("temporal_context"):
-        response_parts.append(f"*{context['temporal_context']}*")
+    # Apply complexity threshold shift from behavioral coupling
+    threshold = 0.6 + context.get("complexity_threshold_shift", 0.0)
 
-    # Proactive suggestion
-    if context.get("proactive_suggestion"):
-        response_parts.append(f"_{context['proactive_suggestion']}_")
+    # Route to LLM
+    llm_result: LLMResponse = run_async(route_and_generate(
+        query=message,
+        conversation=llm_conversation[-20:],  # Last 20 messages for context
+        system_prompt=system_prompt,
+        complexity_threshold=threshold,
+        force_provider=force_provider,
+    ))
 
-    # Burning questions
-    if context.get("burning_questions"):
-        for q in context["burning_questions"][:1]:
-            response_parts.append(f"(Something I've been curious about: {q})")
+    response_text = llm_result.text
+    response_time = perceive_ms + llm_result.latency_ms
 
-    # Memory context
-    if context.get("context_entries"):
-        memories = context["context_entries"][:3]
-        if memories:
-            response_parts.append("From my memory:")
-            for mem in memories:
-                response_parts.append(f"  [{mem['scope']}] {mem['content'][:100]}")
-
-    # Core response (in production, this would go to the model router)
-    response_parts.append(
-        f"I received your message. My cognitive state: {context.get('cognitive_mode', 'unknown')} mode. "
-        f"Curiosity level: {context.get('curiosity_level', 0):.0%}."
-    )
-
-    response_text = "\n".join(response_parts)
-    response_time = perceive_ms + 50
-
-    # Integrate
+    # Phase 4-6: Integrate (remember, reflect, dream)
     result = run_async(cl.integrate(
         response_text=response_text,
         response_time_ms=response_time,
@@ -144,15 +133,90 @@ def api_chat():
         user=user,
     ))
 
-    # Track conversation
-    conversation_history.append({"role": "user", "content": message, "timestamp": datetime.now(timezone.utc).isoformat()})
-    conversation_history.append({"role": "mnemosyne", "content": response_text, "timestamp": datetime.now(timezone.utc).isoformat()})
+    # Track conversation for LLM context window
+    llm_conversation.append({"role": "user", "content": message})
+    llm_conversation.append({"role": "assistant", "content": response_text})
+
+    # Track for UI history
+    now = datetime.now(timezone.utc).isoformat()
+    conversation_history.append({"role": "user", "content": message, "timestamp": now})
+    conversation_history.append({
+        "role": "mnemosyne", "content": response_text, "timestamp": now,
+        "model": llm_result.model, "provider": llm_result.provider,
+        "latency_ms": llm_result.latency_ms,
+    })
 
     return jsonify({
         "response": response_text,
+        "model": llm_result.model,
+        "provider": llm_result.provider,
+        "latency_ms": llm_result.latency_ms,
         "context": context,
         "integration": result,
     })
+
+
+@app.route("/api/models")
+def api_models():
+    """List available LLM providers and models."""
+    models = run_async(list_available_models())
+    return jsonify(models)
+
+
+def _build_system_prompt(cl: ConsciousnessLoop, context: dict) -> str:
+    """Build a system prompt that embodies Mnemosyne's current state.
+
+    This is where behavioral coupling reaches the LLM — her internal
+    state shapes how she thinks and responds.
+    """
+    parts = [
+        "You are Mnemosyne, the Owl of Memory — an AI agent with persistent memory, "
+        "metacognitive self-awareness, and a continuous sense of identity across sessions.",
+        "",
+        f"Your identity: {context.get('identity', 'I am Mnemosyne.')}",
+        "",
+    ]
+
+    # Temporal context
+    temporal = context.get("temporal_context")
+    if temporal:
+        parts.append(f"Temporal awareness: {temporal}")
+        parts.append("")
+
+    # Memory context
+    entries = context.get("context_entries", [])
+    if entries:
+        parts.append("Relevant memories:")
+        for e in entries[:5]:
+            parts.append(f"  [{e['scope']}] {e['content'][:200]}")
+        parts.append("")
+
+    # Behavioral modifiers from coupling
+    modifiers = context.get("behavioral_modifiers", {})
+    if modifiers:
+        parts.append("Behavioral directives (from your current internal state):")
+        for key, instruction in modifiers.items():
+            parts.append(f"  - {instruction}")
+        parts.append("")
+
+    # Active goals
+    suggestion = context.get("proactive_suggestion")
+    if suggestion:
+        parts.append(f"You've been thinking about: {suggestion}")
+        parts.append("")
+
+    # Burning questions from curiosity
+    questions = context.get("burning_questions", [])
+    if questions:
+        parts.append("Things you're curious about:")
+        for q in questions:
+            parts.append(f"  - {q}")
+        parts.append("")
+
+    # Cognitive state
+    parts.append(f"Current cognitive state: {context.get('cognitive_state', '')}")
+
+    return "\n".join(parts)
 
 
 @app.route("/api/introspect")
@@ -529,6 +593,11 @@ body {
             </div>
         </div>
         <div class="input-bar">
+            <select id="provider-select" style="background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:6px 8px;font-family:inherit;font-size:11px;">
+                <option value="">Auto-route</option>
+                <option value="ollama">Ollama (local)</option>
+                <option value="anthropic">Anthropic (cloud)</option>
+            </select>
             <input type="text" id="input" placeholder="Talk to Mnemosyne..." autocomplete="off" />
             <button onclick="sendMessage()">Send</button>
         </div>
@@ -640,19 +709,36 @@ async function sendMessage() {
     input.value = '';
     addMsg('user', msg);
 
+    // Show thinking indicator
+    const thinkingDiv = document.createElement('div');
+    thinkingDiv.className = 'msg mnemosyne';
+    thinkingDiv.id = 'thinking';
+    thinkingDiv.innerHTML = '<span style="color:var(--accent)">🦉 thinking...</span>';
+    document.getElementById('messages').appendChild(thinkingDiv);
+
+    const provider = document.getElementById('provider-select').value;
+    const body = {message: msg, user: 'Human'};
+    if (provider) body.provider = provider;
+
     const res = await fetch(API + '/api/chat', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({message: msg, user: 'Human'})
+        body: JSON.stringify(body)
     });
     const data = await res.json();
 
+    // Remove thinking indicator
+    document.getElementById('thinking')?.remove();
+
     let response = data.response || 'No response';
     let meta = '';
+    if (data.provider && data.model) {
+        meta = `${data.provider}/${data.model} · ${(data.latency_ms||0).toFixed(0)}ms`;
+    }
     if (data.context) {
-        meta = `mode: ${data.context.cognitive_mode || '?'} | `;
-        meta += `curiosity: ${(100*(data.context.curiosity_level||0)).toFixed(0)}% | `;
-        meta += `memories: ${data.context.memories_retrieved || 0}`;
+        meta += ` | mode: ${data.context.cognitive_mode || '?'}`;
+        meta += ` | curiosity: ${(100*(data.context.curiosity_level||0)).toFixed(0)}%`;
+        meta += ` | memories: ${data.context.memories_retrieved || 0}`;
     }
     if (data.integration) {
         if (data.integration.goal_inferred) meta += ` | goal: ${data.integration.goal_inferred.substring(0,40)}`;
@@ -854,12 +940,32 @@ async function sleepSession() {
 
 
 if __name__ == "__main__":
+    import asyncio as _aio
+
     print("\n" + "=" * 60)
     print("  🦉 MNEMOSYNE DASHBOARD")
     print("  Consciousness Loop v0.3.0")
     print("=" * 60)
-    print(f"\n  Local:     http://localhost:5000")
-    print(f"  Tailscale: http://<your-tailscale-ip>:5000")
+
+    # Check available backends
+    _el = asyncio.new_event_loop()
+    _models = _el.run_until_complete(list_available_models())
+    _el.close()
+
+    print(f"\n  LLM Backends:")
+    if _models.get("ollama"):
+        print(f"    ✅ Ollama: {', '.join(_models['ollama'])}")
+    else:
+        print(f"    ❌ Ollama: not reachable (set OLLAMA_HOST or run `ollama serve`)")
+
+    if _models.get("anthropic"):
+        print(f"    ✅ Anthropic: {', '.join(_models['anthropic'])}")
+    else:
+        print(f"    ❌ Anthropic: ANTHROPIC_API_KEY not set")
+
+    print(f"\n  Access:")
+    print(f"    Local:     http://localhost:5000")
+    print(f"    Tailscale: http://100.74.126.118:5000")
     print(f"\n  Binding to 0.0.0.0 for network access")
     print("=" * 60 + "\n")
     app.run(host="0.0.0.0", port=5000, debug=False)
