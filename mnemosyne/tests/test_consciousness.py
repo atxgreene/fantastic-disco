@@ -138,14 +138,16 @@ class TestConsciousnessLoop:
     @pytest.mark.asyncio
     async def test_perceive_and_integrate(self):
         loop = ConsciousnessLoop(context_budget_tokens=1000)
+        loop.wake(user="TestUser")
 
-        # Simulate a turn
         query_emb = np.random.randn(384).astype(np.float32)
         context = await loop.perceive("What is TurboQuant?", query_emb)
 
         assert "turn_id" in context
         assert "cognitive_state" in context
         assert "identity" in context
+        assert "behavioral_modifiers" in context
+        assert "curiosity_level" in context
         assert context["turn_id"] == 1
 
         result = await loop.integrate(
@@ -156,6 +158,7 @@ class TestConsciousnessLoop:
 
         assert "cognitive_state" in result
         assert "memory_stats" in result
+        assert "behavioral_modifiers" in result
 
     @pytest.mark.asyncio
     async def test_introspection(self):
@@ -163,6 +166,10 @@ class TestConsciousnessLoop:
         report = loop.introspect()
         assert "metacognition" in report
         assert "autobiography" in report
+        assert "goals" in report
+        assert "curiosity" in report
+        assert "temporal" in report
+        assert "behavioral_state" in report
         assert "memory" in report
         assert "compression" in report
         assert "dream" in report
@@ -170,6 +177,7 @@ class TestConsciousnessLoop:
     @pytest.mark.asyncio
     async def test_multiple_turns(self):
         loop = ConsciousnessLoop(reflection_interval=3)
+        loop.wake(user="User")
 
         for i in range(4):
             emb = np.random.randn(384).astype(np.float32)
@@ -179,6 +187,5 @@ class TestConsciousnessLoop:
             )
 
         assert loop._turn_count == 4
-        # Should have some memories stored
         total = sum(len(s) for s in loop.memory.stores.values())
         assert total > 0
