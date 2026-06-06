@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Austin J. Greene | Reality Researcher & AI Architect</title>
+    <meta name="description" content="Personal portfolio of Austin J. Greene — Reality Research Program, Mnemosyne AI consciousness extensions, Above Black Trainer, and explorations at the edge of physics, agents, and human potential. Stellas Hereditabimus.">
+    <meta property="og:title" content="Austin J. Greene | Inheriting the Stars">
+    <meta property="og:description" content="Polymath researcher building tools to understand the universe: advanced AI memory systems, theoretical physics (Boundary Condition Engineering), consciousness technology, and personal mythology.">
+    <meta property="og:image" content="https://picsum.photos/id/1015/1200/630"> <!-- Replace with custom cosmic hero image -->
+    <meta property="og:url" content="https://atxgreene.github.io/fantastic-disco">
+    <meta name="twitter:card" content="summary_large_image">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+        :root {
+            --navy: #0a0a1f;
+            --deep-purple: #1a1433;
+            --gold: #d4af37;
+            --electric: #6366f1;
+        }
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        .heading-font {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+        }
+        .cosmic-bg {
+            background: linear-gradient(135deg, #0a0a1f 0%, #1a1433 50%, #0f0a24 100%);
+        }
+        .section-header {
+            position: relative;
+            display: inline-block;
+        }
+        .section-header:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(to right, #d4af37, transparent);
+        }
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover {
+            color: #d4af37;
+        }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 1.5s infinite ease-in-out;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        .cosmic-text {
+            background: linear-gradient(90deg, #fff, #d4af37, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+        .metric {
+            transition: transform 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a1f] text-white antialiased">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#0a0a1f]/95 backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#d4af37] via-[#6366f1] to-[#d4af37] flex items-center justify-center">
+                    <span class="text-[#0a0a1f] font-bold text-xl tracking-tighter">FD</span>
+                </div>
+                <div>
+                    <div class="font-semibold tracking-tight text-xl">Austin J. Greene</div>
+                    <div class="text-[10px] text-white/50 -mt-1">REALITY RESEARCH</div>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-x-8 text-sm">
+                <a href="#about" class="nav-link text-white/80 hover:text-white">About</a>
+                <a href="#projects" class="nav-link text-white/80 hover:text-white">Projects</a>
+                <a href="#research" class="nav-link text-white/80 hover:text-white">Research</a>
+                <a href="#connect" class="nav-link text-white/80 hover:text-white">Connect</a>
+            </div>
+            
+            <div class="flex items-center gap-x-3">
+                <a href="https://x.com/atxgreene" target="_blank" 
+                   class="flex items-center justify-center w-9 h-9 rounded-full border border-white/20 hover:bg-white/5 transition-colors">
+                    <i class="fa-brands fa-x-twitter text-lg"></i>
+                </a>
+                <a href="https://github.com/atxgreene" target="_blank"
+                   class="flex items-center justify-center w-9 h-9 rounded-full border border-white/20 hover:bg-white/5 transition-colors">
+                    <i class="fa-brands fa-github text-lg"></i>
+                </a>
+                <button onclick="document.getElementById('connect').scrollIntoView({ behavior: 'smooth' })" 
+                        class="px-5 py-2 text-sm font-medium rounded-full bg-white text-[#0a0a1f] hover:bg-[#d4af37] transition-all active:scale-[0.985]">
+                    Let's Talk
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative min-h-[100dvh] flex items-center justify-center cosmic-bg pt-20 overflow-hidden">
+        <!-- Subtle star field -->
+        <div id="stars" class="absolute inset-0 pointer-events-none"></div>
+        
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/5 text-sm mb-6">
+                <div class="w-2 h-2 bg-[#d4af37] rounded-full animate-pulse"></div>
+                <span class="text-white/80">Currently building Mnemosyne v0.4 & BCE physics protocols</span>
+            </div>
+            
+            <h1 class="text-7xl md:text-8xl font-semibold tracking-tighter heading-font leading-[0.9] mb-6">
+                We Shall<br>Inherit the Stars
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-2xl text-white/70 mb-10">
+                Austin J. Greene — Researcher exploring the boundaries of reality, 
+                consciousness, and intelligent systems.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#projects" 
+                   class="group inline-flex items-center justify-center gap-x-3 px-8 py-4 rounded-2xl bg-white text-[#0a0a1f] font-semibold text-lg hover:bg-[#d4af37] active:scale-[0.985] transition-all">
+                    Explore Projects
+                    <i class="fa-solid fa-arrow-right group-hover:translate-x-0.5 transition-transform"></i>
+                </a>
+                <a href="https://github.com/atxgreene/fantastic-disco" target="_blank"
+                   class="inline-flex items-center justify-center gap-x-3 px-8 py-4 rounded-2xl border border-white/30 hover:bg-white/5 font-medium text-lg transition-all">
+                    <i class="fa-brands fa-github"></i>
+                    <span>View on GitHub</span>
+                </a>
+            </div>
+            
+            <div class="mt-16 flex justify-center">
+                <div class="flex items-center gap-x-8 text-xs tracking-[3px] text-white/40">
+                    <div>OKLAHOMA CITY</div>
+                    <div class="w-px h-3 bg-white/20"></div>
+                    <div>BAYLOR '22</div>
+                    <div class="w-px h-3 bg-white/20"></div>
+                    <div>PAYCOM</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/40 text-xs tracking-widest">
+            <div>SCROLL TO BEGIN</div>
+            <i class="fa-solid fa-chevron-down mt-1.5 animate-bounce"></i>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="max-w-5xl mx-auto px-6 pt-20 pb-16">
+        <div class="grid md:grid-cols-12 gap-x-12 items-start">
+            <div class="md:col-span-5 mb-10 md:mb-0">
+                <div class="sticky top-24">
+                    <div class="text-[#d4af37] text-sm font-medium tracking-[2px] mb-3">CHAPTER 01 — ORIGIN</div>
+                    <h2 class="text-6xl tracking-tighter heading-font leading-none">The Quest<br>to Understand.</h2>
+                </div>
+            </div>
+            
+            <div class="md:col-span-7 text-[17px] text-white/80 leading-relaxed space-y-6">
+                <p>Born in Austin, Texas (Scorpio, 1998), I triple-majored at Baylor University in Professional Selling, International Business, and Entrepreneurship while competing as a multi-sport athlete and musician. After a transformative period of collapse and rebirth in 2023–2024, I moved to Oklahoma City to pursue financial independence and full-time research into the nature of reality.</p>
+                
+                <p>Today I work as an Executive Strategic Account Manager at Paycom while running independent research through the <span class="text-white">Reality Research Program</span> and building production-grade AI agent systems. My north star is <span class="font-medium text-[#d4af37]">Stellas Hereditabimus</span> — the conviction that we are meant to inherit the stars through disciplined will, scientific rigor, and mythic self-creation.</p>
+                
+                <div class="pt-4 flex flex-wrap gap-3">
+                    <div class="inline-flex items-center px-4 h-9 rounded-full bg-white/5 text-sm border border-white/10">
+                        <i class="fa-solid fa-globe mr-2 text-[#d4af37]"></i> 
+                        <span>Physics • AI Agents • Consciousness</span>
+                    </div>
+                    <div class="inline-flex items-center px-4 h-9 rounded-full bg-white/5 text-sm border border-white/10">
+                        <i class="fa-solid fa-user-astronaut mr-2 text-[#d4af37]"></i> 
+                        <span>Polymath • Researcher • Builder</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="bg-[#111122] py-16 border-y border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <div class="text-[#d4af37] text-sm font-medium tracking-[2px] mb-2">CHAPTER 02 — OUTPUT</div>
+                    <h2 class="text-6xl tracking-tighter heading-font">Featured Projects</h2>
+                </div>
+                <a href="https://github.com/atxgreene" target="_blank" class="hidden md:flex items-center gap-x-2 text-sm text-white/70 hover:text-white">
+                    All repositories <i class="fa-solid fa-arrow-up-right-from-square ml-1.5"></i>
+                </a>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Project 1: Mnemosyne Consciousness -->
+                <div class="project-card group bg-[#0a0a1f] border border-white/10 rounded-3xl p-8 flex flex-col h-full">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#6366f1] to-[#d4af37] flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-brain text-3xl text-white"></i>
+                        </div>
+                        <span class="px-3 py-1 text-xs font-mono tracking-widest bg-white/10 rounded-full self-start">v0.3.0 • ACTIVE</span>
+                    </div>
+                    
+                    <h3 class="text-3xl tracking-tight font-semibold mb-3 group-hover:text-[#d4af37] transition-colors">Mnemosyne Consciousness Extensions</h3>
+                    <p class="text-white/70 flex-1">Layering metacognition, autobiographical memory, dream consolidation, goal systems, and real TurboQuant compression on top of the core Mnemosyne agent architecture. A living cognitive OS for long-horizon research and self-improving agents.</p>
+                    
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="text-xs px-3 py-1 bg-white/10 rounded-full">Python</span>
+                        <span class="text-xs px-3 py-1 bg-white/10 rounded-full">Agent Memory</span>
+                        <span class="text-xs px-3 py-1 bg-white/10 rounded-full">Metacognition</span>
+                    </div>
+                    
+                    <div class="mt-auto pt-8 flex items-center gap-x-4 text-sm">
+                        <a href="https://github.com/atxgreene/fantastic-disco" class="flex-1 text-center py-3 rounded-2xl border border-white/20 hover:bg-white/5 transition-colors">This Repo</a>
+                        <a href="#" class="flex-1 text-center py-3 rounded-2xl bg-white/90 text-[#0a0a1f] font-medium hover:bg-[#d4af37]">Architecture Docs</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Above Black -->
+                <div class="project-card group bg-[#0a0a1f] border border-white/10 rounded-3xl p-8 flex flex-col h-full">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#d4af37] to-amber-400 flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-infinity text-3xl text-[#0a0a1f]"></i>
+                        </div>
+                        <span class="px-3 py-1 text-xs font-mono tracking-widest bg-white/10 rounded-full self-start">LIVE • PWA</span>
+                    </div>
+                    
+                    <h3 class="text-3xl tracking-tight font-semibold mb-3 group-hover:text-[#d4af37] transition-colors">Above Black Trainer</h3>
+                    <p class="text-white/70 flex-1">Local-first Progressive Web App implementing the full Gateway Experience (Focus 10–27), Hemi-Sync protocols, Energy Body Mastery, and progressive resonance training lines. Designed for offline use and deep consciousness exploration.</p>
+                    
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="text-xs px-3 py-1 bg-white/10 rounded-full">PWA</span>
+                        <span class="text-xs px-3 py-1 bg-white/10 rounded-full">Consciousness Tech</span>
+                        <span class="text-xs px-3 py-1 bg-white/10 rounded-full">Offline-first</span>
+                    </div>
+                    
+                    <div class="mt-auto pt-8 flex items-center gap-x-4 text-sm">
+                        <a href="https://atxgreene.github.io/above-black-trainer" target="_blank" class="flex-1 text-center py-3 rounded-2xl border border-white/20 hover:bg-white/5 transition-colors">Launch App</a>
+                        <a href="https://github.com/atxgreene/above-black-trainer" target="_blank" class="flex-1 text-center py-3 rounded-2xl bg-white/90 text-[#0a0a1f] font-medium hover:bg-[#d4af37]">GitHub</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3: BCE Physics -->
+                <div class="project-card group bg-[#0a0a1f] border border-white/10 rounded-3xl p-8 flex flex-col h-full">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-[#6366f1] flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-atom text-3xl text-white"></i>
+                        </div>
+                        <span class="px-3 py-1 text-xs font-mono tracking-widest bg-white/10 rounded-full self-start">RESEARCH</span>
+                    </div>
+                    
+                    <h3 class="text-3xl tracking-tight font-semibold mb-3 group-hover:text-[#d4af37] transition-colors">Boundary Condition Engineering</h3>
+                    <p class="text-white/70 flex-1">A new theoretical framework for boundary QED, heat kernel methods on dielectric-conductor interfaces, Casimir forces, and spectral geometry. Includes anomaly falsification work and pre-registered experimental protocols for propulsion research.</p>
+                    
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="text-xs px-3 py-1 bg-white/10 rounded-full">Theoretical Physics</span>
+                        <span class="text-xs px-3 py-1 bg-white/10 rounded-full">QED</span>
+                        <span class="text-xs px-3 py-1 bg-white/10 rounded-full">arXiv Prep</span>
+                    </div>
+                    
+                    <div class="mt-auto pt-8 flex items-center gap-x-4 text-sm">
+                        <a href="#research" class="flex-1 text-center py-3 rounded-2xl border border-white/20 hover:bg-white/5 transition-colors">Read Papers</a>
+                        <a href="#" class="flex-1 text-center py-3 rounded-2xl bg-white/90 text-[#0a0a1f] font-medium hover:bg-[#d4af37]">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 text-center">
+                <p class="text-white/50 text-sm">More projects including Bluebonnet Studio web work, talisman design systems, and agent tooling experiments available on request or in private repos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research & Philosophy -->
+    <section id="research" class="max-w-5xl mx-auto px-6 py-20">
+        <div class="grid md:grid-cols-12 gap-x-12">
+            <div class="md:col-span-5 mb-10 md:mb-0">
+                <div class="sticky top-24">
+                    <div class="text-[#d4af37] text-sm font-medium tracking-[2px] mb-3">CHAPTER 03 — INQUIRY</div>
+                    <h2 class="text-6xl tracking-tighter heading-font leading-none">Reality Research<br>Program</h2>
+                    <p class="mt-6 text-white/70">Pushing the edges of what is knowable through rigorous, falsifiable inquiry and personal experimentation.</p>
+                </div>
+            </div>
+            
+            <div class="md:col-span-7">
+                <div class="space-y-8">
+                    <div class="border-l-2 border-[#d4af37]/40 pl-8">
+                        <div class="uppercase text-xs tracking-[2px] text-white/50 mb-1">Core Framework</div>
+                        <h4 class="text-2xl font-semibold tracking-tight">Boundary Condition Engineering (BCE)</h4>
+                        <p class="mt-3 text-white/70">Investigating how boundaries (material, geometric, informational) give rise to forces, fields, and emergent phenomena. Current work centers on heat kernel coefficients for planar and spherical interfaces, additivity of surface tensions, and experimental protocols to test claims in the antigravity/propulsion literature.</p>
+                    </div>
+                    
+                    <div class="border-l-2 border-[#d4af37]/40 pl-8">
+                        <div class="uppercase text-xs tracking-[2px] text-white/50 mb-1">Methodology</div>
+                        <h4 class="text-2xl font-semibold tracking-tight">Adversarial Reasoning + AI Augmentation</h4>
+                        <p class="mt-3 text-white/70">I use custom agent teams (including Mnemosyne) for literature sweeps, claim falsification, and paper drafting. Strong emphasis on pre-registration, reproducibility, and ruthless self-scrutiny. ~45% credence in simulation hypothesis as a working prior.</p>
+                    </div>
+                    
+                    <div class="pt-4">
+                        <a href="#" class="inline-flex items-center text-[#d4af37] hover:underline">
+                            View current papers & open problems <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect / CTA -->
+    <section id="connect" class="border-t border-white/10 bg-[#111122] py-16">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <div class="text-[#d4af37] text-sm font-medium tracking-[2px] mb-4">CHAPTER 04 — CONNECTION</div>
+            <h2 class="text-6xl tracking-tighter heading-font mb-6">Let's build something<br>that matters.</h2>
+            
+            <p class="text-xl text-white/70 max-w-md mx-auto">Whether you're interested in collaboration on AI agents, physics research, consciousness tech, or just want to talk about inheriting the stars — I'm open.</p>
+            
+            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://x.com/atxgreene" target="_blank"
+                   class="inline-flex items-center justify-center gap-x-3 px-10 py-4 rounded-2xl bg-white text-[#0a0a1f] font-semibold text-lg hover:bg-[#d4af37]">
+                    <i class="fa-brands fa-x-twitter"></i>
+                    <span>Message on X</span>
+                </a>
+                <a href="https://github.com/atxgreene/fantastic-disco/issues" target="_blank"
+                   class="inline-flex items-center justify-center gap-x-3 px-10 py-4 rounded-2xl border border-white/30 hover:bg-white/5 font-medium text-lg transition-all">
+                    <span>Open an Issue</span>
+                </a>
+            </div>
+            
+            <div class="mt-12 text-xs text-white/40 tracking-widest">
+                OKLAHOMA CITY, OKLAHOMA &nbsp;•&nbsp; AUSTIN J. GREENE &nbsp;•&nbsp; 2026
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 py-8 text-center text-xs text-white/40">
+        <div class="max-w-7xl mx-auto px-6">
+            Made with intention. &nbsp;•&nbsp; Source available on GitHub &nbsp;•&nbsp; 
+            <span class="font-mono">fantastic-disco</span>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent-gold', '#d4af37');
+            
+            // Simple star field
+            const starsContainer = document.getElementById('stars');
+            if (starsContainer) {
+                for (let i = 0; i < 120; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    const size = Math.random() * 2.5 + 0.8;
+                    star.style.width = `${size}px`;
+                    star.style.height = `${size}px`;
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    star.style.opacity = Math.random() * 0.7 + 0.2;
+                    star.style.animationDelay = `-${Math.random() * 3}s`;
+                    starsContainer.appendChild(star);
+                }
+            }
+        }
+        
+        // Keyboard escape for future modals
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                // Future: close any open modals
+            }
+        });
+        
+        // Boot
+        window.onload = function() {
+            initializeTailwind();
+            
+            // Optional: subtle parallax on hero (disabled on mobile for perf)
+            if (window.innerWidth > 768) {
+                const hero = document.querySelector('header');
+                if (hero) {
+                    window.addEventListener('scroll', () => {
+                        const scrolled = window.pageYOffset;
+                        hero.style.backgroundPositionY = `${scrolled * 0.3}px`;
+                    });
+                }
+            }
+        };
+        
+        // Easter egg: console message
+        console.log('%c[FD] Fantastic Disco portfolio initialized. Stellas Hereditabimus.', 'color:#d4af37; font-size:9px');
+    </script>
+</body>
+</html>
