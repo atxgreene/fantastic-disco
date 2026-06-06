@@ -3,131 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATXGreene — Operator · Builder · Researcher</title>
-    <meta name="description" content="Austin J. Greene — Building the personal operating system for ambition, useful AI, and human performance. Operator. Builder. Researcher.">
+    <title>ATXGreene — Build the edge. Keep the soul.</title>
+    <meta name="description" content="Austin J. Greene — Operator, builder, and independent researcher. Building systems for ambition, useful AI, and human performance.">
     <link rel="icon" href="brand/atxgreene-favicon.svg" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
-        
+
         :root {
-            --color-deep-teal: #0B6E69;
-            --color-electric-teal: #12C9B7;
-            --color-burnt-orange: #F97316;
-            --color-solar-orange: #FFB45B;
-            --color-midnight-navy: #071923;
-            --color-charcoal: #111827;
-            --color-bone: #F4F1E8;
-            --color-mist: #D7F3EF;
-            --color-slate: #64748B;
-            --color-signal-green: #7CFFB2;
+            --deep-teal: #0B6E69;
+            --electric-teal: #12C9B7;
+            --burnt-orange: #F97316;
+            --solar-orange: #FFB45B;
+            --midnight-navy: #071923;
+            --charcoal: #111827;
+            --bone: #F4F1E8;
+            --mist: #D7F3EF;
+            --slate: #64748B;
         }
 
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-        }
-        .font-display {
-            font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
-            font-weight: 600;
-            letter-spacing: -0.025em;
-        }
-        .font-mono {
-            font-family: 'IBM Plex Mono', ui-monospace, monospace;
-        }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .font-display { font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.03em; }
+        .font-mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
 
-        .section-header {
-            font-size: clamp(2.25rem, 5vw, 3.5rem);
-            line-height: 1.05;
-            letter-spacing: -0.04em;
-        }
+        .section-header { font-size: clamp(2.5rem, 5.5vw, 3.75rem); line-height: 1.0; letter-spacing: -0.045em; }
 
-        .nav-link {
-            transition: color 0.2s ease;
-        }
-        .nav-link:hover {
-            color: var(--color-electric-teal);
+        .glass {
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
         }
 
         .project-card {
-            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), 
-                        box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.2, 1),
-                        border-color 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
             border: 1px solid rgba(255,255,255,0.08);
         }
         .project-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-8px);
+            border-color: rgba(18, 201, 183, 0.25);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+
+        .nav-link { transition: color 0.2s ease; }
+        .nav-link:hover { color: var(--electric-teal); }
+
+        .signal { color: var(--electric-teal); }
+        .accent-orange { color: var(--burnt-orange); }
+
+        .premium-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .premium-card:hover {
+            transform: translateY(-4px);
             box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-            border-color: rgba(18, 201, 183, 0.3);
-        }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .teal-text { color: var(--color-electric-teal); }
-        .orange-text { color: var(--color-burnt-orange); }
-        .bone-text { color: var(--color-bone); }
-
-        .subtle-grid {
-            background-image: 
-                linear-gradient(rgba(18,201,183,0.035) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(18,201,183,0.035) 1px, transparent 1px);
-            background-size: 48px 48px;
-        }
-
-        .metric {
-            transition: transform 0.2s ease;
-        }
-        .metric:hover {
-            transform: translateY(-2px);
-        }
-
-        .nav-active {
-            color: var(--color-electric-teal);
-            position: relative;
-        }
-        .nav-active:after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(to right, var(--color-electric-teal), transparent);
         }
     </style>
 </head>
 <body class="bg-[#071923] text-[#F4F1E8] antialiased">
     <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#071923]/95 backdrop-blur-xl">
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#071923]/95 backdrop-blur-2xl">
         <div class="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-x-4">
-                <img src="brand/atxgreene-monogram.svg" alt="ATXGreene" class="w-9 h-9">
-                <div>
-                    <div class="font-semibold tracking-tighter text-2xl font-display">ATXGreene</div>
-                </div>
+            <div class="flex items-center gap-x-3">
+                <img src="brand/atxgreene-monogram.svg" alt="ATXGreene" class="w-10 h-10">
+                <div class="font-semibold tracking-[-1.5px] text-2xl font-display">ATXGreene</div>
             </div>
 
-            <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
-                <a href="#work" class="nav-link text-[#F4F1E8]/80 hover:text-[#F4F1E8]">Work</a>
-                <a href="#principles" class="nav-link text-[#F4F1E8]/80 hover:text-[#F4F1E8]">Principles</a>
-                <a href="#edge" class="nav-link text-[#F4F1E8]/80 hover:text-[#F4F1E8]">Edge</a>
+            <div class="hidden md:flex items-center gap-x-10 text-sm font-medium">
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#principles" class="nav-link">Principles</a>
+                <a href="#edge" class="nav-link">The Edge</a>
             </div>
 
-            <div class="flex items-center gap-x-4">
-                <a href="https://x.com/atxgreene" target="_blank" 
-                   class="w-9 h-9 flex items-center justify-center rounded-full border border-white/15 hover:bg-white/5 transition-colors">
+            <div class="flex items-center gap-x-3">
+                <a href="https://x.com/atxgreene" target="_blank" class="w-9 h-9 flex items-center justify-center rounded-full border border-white/15 hover:bg-white/5 transition-colors">
                     <i class="fa-brands fa-x-twitter"></i>
                 </a>
-                <a href="https://github.com/atxgreene" target="_blank"
-                   class="w-9 h-9 flex items-center justify-center rounded-full border border-white/15 hover:bg-white/5 transition-colors">
+                <a href="https://github.com/atxgreene" target="_blank" class="w-9 h-9 flex items-center justify-center rounded-full border border-white/15 hover:bg-white/5 transition-colors">
                     <i class="fa-brands fa-github"></i>
                 </a>
-                <a href="#connect" 
-                   class="px-6 py-2.5 text-sm font-semibold rounded-full bg-[#12C9B7] text-[#071923] hover:bg-[#0B6E69] hover:text-white transition-all active:scale-[0.985]">
+                <a href="#connect" class="px-6 py-2.5 rounded-full bg-[#12C9B7] text-[#071923] font-semibold text-sm hover:bg-[#0B6E69] hover:text-white transition-all active:scale-[0.985]">
                     Let's talk
                 </a>
             </div>
@@ -135,175 +90,209 @@
     </nav>
 
     <!-- Hero -->
-    <header class="pt-20 pb-16 border-b border-white/10">
-        <div class="max-w-5xl mx-auto px-8 pt-16 pb-12">
+    <header class="pt-20 border-b border-white/10">
+        <div class="max-w-5xl mx-auto px-8 pt-20 pb-16">
             <div class="max-w-4xl">
-                <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full border border-white/15 text-xs tracking-[2px] mb-8">
+                <div class="inline-flex items-center gap-x-2 px-4 h-8 rounded-full border border-white/15 text-xs tracking-[2.5px] mb-8 font-mono">
                     <div class="w-1.5 h-1.5 bg-[#12C9B7] rounded-full animate-pulse"></div>
-                    <span class="text-[#12C9B7] font-mono">CURRENTLY SHIPPING</span>
+                    <span class="text-[#12C9B7]">SHIPPING NOW</span>
                 </div>
 
-                <h1 class="text-7xl md:text-8xl font-semibold tracking-[-4.5px] leading-[.92] font-display mb-6">
+                <h1 class="text-[72px] md:text-[86px] leading-[0.92] tracking-[-5.5px] font-semibold font-display mb-6">
                     Build the edge.<br>
                     <span class="text-[#12C9B7]">Keep the soul.</span>
                 </h1>
 
-                <p class="max-w-2xl text-2xl text-[#F4F1E8]/80 mb-10">
-                    Austin J. Greene — Operator, builder, and independent researcher turning ambition, AI, and human performance into operating systems.
+                <p class="max-w-[620px] text-2xl text-[#F4F1E8]/80 mb-10">
+                    Austin J. Greene — Operator, builder, and independent researcher turning ambition, AI systems, and human performance into reliable operating systems.
                 </p>
 
-                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                    <a href="#work" 
-                       class="group inline-flex items-center justify-center gap-x-3 px-9 py-4 rounded-2xl bg-white text-[#071923] font-semibold text-lg hover:bg-[#F97316] hover:text-white transition-all active:scale-[0.985]">
-                        See the work
-                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#work" class="inline-flex items-center justify-center gap-x-3 px-9 py-4 rounded-2xl bg-white text-[#071923] font-semibold text-lg hover:bg-[#F97316] hover:text-white transition-all active:scale-[0.985]">
+                        Explore the work
+                        <i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <a href="https://github.com/atxgreene" target="_blank"
-                       class="inline-flex items-center justify-center gap-x-3 px-9 py-4 rounded-2xl border border-white/20 hover:bg-white/5 font-medium text-lg transition-all">
-                        <i class="fa-brands fa-github"></i>
-                        <span>GitHub</span>
+                    <a href="https://github.com/atxgreene" target="_blank" class="inline-flex items-center justify-center gap-x-3 px-9 py-4 rounded-2xl border border-white/20 hover:bg-white/5 font-medium text-lg transition-all">
+                        View on GitHub
                     </a>
                 </div>
 
-                <div class="mt-14 flex items-center gap-x-8 text-sm text-[#F4F1E8]/50">
-                    <div class="flex items-center gap-x-2">
-                        <i class="fa-solid fa-map-marker-alt"></i>
-                        <span>Oklahoma City / Austin</span>
-                    </div>
-                    <div class="w-px h-3.5 bg-white/20"></div>
+                <div class="mt-12 flex items-center gap-x-6 text-sm text-[#F4F1E8]/50">
+                    <div>Oklahoma City / Austin</div>
+                    <div class="w-px h-3 bg-white/20"></div>
                     <div>Baylor '22 • Paycom</div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Work / Projects -->
-    <section id="work" class="max-w-7xl mx-auto px-8 pt-20 pb-16">
-        <div class="flex justify-between items-end mb-10">
+    <!-- Work -->
+    <section id="work" class="max-w-7xl mx-auto px-8 pt-16 pb-14">
+        <div class="flex justify-between items-end mb-9">
             <div>
-                <div class="uppercase tracking-[3px] text-xs text-[#12C9B7] font-mono mb-2">CHAPTER 01 — OUTPUT</div>
-                <h2 class="section-header font-display tracking-tight">Selected Work</h2>
+                <div class="font-mono text-xs tracking-[3px] text-[#12C9B7] mb-2">CHAPTER 01 — OUTPUT</div>
+                <h2 class="section-header font-display tracking-[-1.5px]">Selected Work</h2>
             </div>
-            <a href="https://github.com/atxgreene" target="_blank" class="hidden md:flex items-center gap-x-2 text-sm hover:text-[#12C9B7] transition-colors">
-                All repositories <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-xs"></i>
-            </a>
+            <a href="https://github.com/atxgreene" target="_blank" class="text-sm hidden md:block hover:text-[#12C9B7] transition-colors">All repositories →</a>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Project Card 1 -->
-            <div class="project-card glass rounded-3xl p-8 group">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="w-11 h-11 rounded-2xl bg-[#0B6E69] flex items-center justify-center">
-                        <i class="fa-solid fa-brain text-2xl text-white"></i>
-                    </div>
-                    <span class="font-mono text-xs px-3 py-1 rounded-full border border-white/15">ACTIVE</span>
+            <!-- Mnemosyne -->
+            <div class="project-card glass rounded-3xl p-8 premium-card">
+                <div class="flex justify-between mb-5">
+                    <div class="w-11 h-11 rounded-2xl bg-[#0B6E69] flex items-center justify-center"><i class="fa-solid fa-brain text-white text-2xl"></i></div>
+                    <span class="font-mono text-[10px] px-3 py-1 rounded-full border border-white/15 self-start">ACTIVE</span>
                 </div>
-                <h3 class="text-3xl font-semibold tracking-tight mb-3 group-hover:text-[#12C9B7] transition-colors">Mnemosyne Consciousness</h3>
-                <p class="text-[#F4F1E8]/75 mb-6">Production-grade memory architecture and metacognition layer for long-horizon AI agents. Real quantization, scoped memory, dream consolidation, and autonomous goal systems.</p>
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="text-xs px-3.5 py-1 rounded-full bg-white/5 border border-white/10">Python</span>
-                    <span class="text-xs px-3.5 py-1 rounded-full bg-white/5 border border-white/10">Agent Systems</span>
-                    <span class="text-xs px-3.5 py-1 rounded-full bg-white/5 border border-white/10">Local-first</span>
+                <h3 class="text-3xl font-semibold tracking-tight mb-3">Mnemosyne</h3>
+                <p class="text-[#F4F1E8]/75 text-[15px] mb-6">Production memory architecture + metacognition layer for long-horizon agents. Real TurboQuant, scoped memory hierarchy, dream consolidation, and autonomous goal systems.</p>
+                <div class="flex gap-2 mb-7 flex-wrap">
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">Python</span>
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">Agent Memory</span>
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">Local-first</span>
                 </div>
-                <div class="flex gap-3">
-                    <a href="https://github.com/atxgreene/fantastic-disco" class="flex-1 text-center py-3 rounded-2xl border border-white/15 text-sm font-medium hover:bg-white/5 transition-colors">Repo</a>
-                    <a href="#" class="flex-1 text-center py-3 rounded-2xl bg-white/90 text-[#071923] text-sm font-semibold hover:bg-[#12C9B7] hover:text-white transition-colors">Docs</a>
+                <div class="flex gap-3 text-sm">
+                    <a href="https://github.com/atxgreene/fantastic-disco" class="flex-1 text-center py-[13px] rounded-2xl border border-white/15 hover:bg-white/5">Repo</a>
+                    <a href="#" class="flex-1 text-center py-[13px] rounded-2xl bg-white text-[#071923] font-semibold hover:bg-[#12C9B7] hover:text-white">Architecture</a>
                 </div>
             </div>
 
-            <!-- Project Card 2 -->
-            <div class="project-card glass rounded-3xl p-8 group">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="w-11 h-11 rounded-2xl bg-[#F97316] flex items-center justify-center">
-                        <i class="fa-solid fa-infinity text-2xl text-[#071923]"></i>
-                    </div>
-                    <span class="font-mono text-xs px-3 py-1 rounded-full border border-white/15">LIVE</span>
+            <!-- Above Black -->
+            <div class="project-card glass rounded-3xl p-8 premium-card">
+                <div class="flex justify-between mb-5">
+                    <div class="w-11 h-11 rounded-2xl bg-[#F97316] flex items-center justify-center"><i class="fa-solid fa-infinity text-[#071923] text-2xl"></i></div>
+                    <span class="font-mono text-[10px] px-3 py-1 rounded-full border border-white/15 self-start">LIVE</span>
                 </div>
-                <h3 class="text-3xl font-semibold tracking-tight mb-3 group-hover:text-[#12C9B7] transition-colors">Above Black Trainer</h3>
-                <p class="text-[#F4F1E8]/75 mb-6">Local-first PWA for the full Gateway Experience (Focus 10–27), Hemi-Sync protocols, Energy Body Mastery, and progressive resonance training. Designed for offline consciousness work.</p>
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="text-xs px-3.5 py-1 rounded-full bg-white/5 border border-white/10">PWA</span>
-                    <span class="text-xs px-3.5 py-1 rounded-full bg-white/5 border border-white/10">Consciousness</span>
-                    <span class="text-xs px-3.5 py-1 rounded-full bg-white/5 border border-white/10">Offline</span>
+                <h3 class="text-3xl font-semibold tracking-tight mb-3">Above Black Trainer</h3>
+                <p class="text-[#F4F1E8]/75 text-[15px] mb-6">Local-first PWA for the complete Gateway Experience (Focus 10–27), Hemi-Sync protocols, Energy Body Mastery, and progressive resonance training lines.</p>
+                <div class="flex gap-2 mb-7 flex-wrap">
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">PWA</span>
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">Consciousness</span>
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">Offline</span>
                 </div>
-                <div class="flex gap-3">
-                    <a href="https://atxgreene.github.io/above-black-trainer" target="_blank" class="flex-1 text-center py-3 rounded-2xl border border-white/15 text-sm font-medium hover:bg-white/5 transition-colors">Launch</a>
-                    <a href="https://github.com/atxgreene/above-black-trainer" target="_blank" class="flex-1 text-center py-3 rounded-2xl bg-white/90 text-[#071923] text-sm font-semibold hover:bg-[#12C9B7] hover:text-white transition-colors">GitHub</a>
+                <div class="flex gap-3 text-sm">
+                    <a href="https://atxgreene.github.io/above-black-trainer" target="_blank" class="flex-1 text-center py-[13px] rounded-2xl border border-white/15 hover:bg-white/5">Launch App</a>
+                    <a href="https://github.com/atxgreene/above-black-trainer" target="_blank" class="flex-1 text-center py-[13px] rounded-2xl bg-white text-[#071923] font-semibold hover:bg-[#12C9B7] hover:text-white">GitHub</a>
                 </div>
             </div>
 
-            <!-- Project Card 3 -->
-            <div class="project-card glass rounded-3xl p-8 group">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="w-11 h-11 rounded-2xl bg-[#0B6E69] flex items-center justify-center">
-                        <i class="fa-solid fa-atom text-2xl text-white"></i>
-                    </div>
-                    <span class="font-mono text-xs px-3 py-1 rounded-full border border-white/15">RESEARCH</span>
+            <!-- BCE -->
+            <div class="project-card glass rounded-3xl p-8 premium-card">
+                <div class="flex justify-between mb-5">
+                    <div class="w-11 h-11 rounded-2xl bg-[#0B6E69] flex items-center justify-center"><i class="fa-solid fa-atom text-white text-2xl"></i></div>
+                    <span class="font-mono text-[10px] px-3 py-1 rounded-full border border-white/15 self-start">RESEARCH</span>
                 </div>
-                <h3 class="text-3xl font-semibold tracking-tight mb-3 group-hover:text-[#12C9B7] transition-colors">Boundary Condition Engineering</h3>
-                <p class="text-[#F4F1E8]/75 mb-6">Theoretical physics program exploring boundary QED, heat kernel methods, Casimir forces, and falsification of anomalous propulsion claims. Pre-registered protocols and open problems.</p>
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="text-xs px-3.5 py-1 rounded-full bg-white/5 border border-white/10">Physics</span>
-                    <span class="text-xs px-3.5 py-1 rounded-full bg-white/5 border border-white/10">QED</span>
-                    <span class="text-xs px-3.5 py-1 rounded-full bg-white/5 border border-white/10">arXiv</span>
+                <h3 class="text-3xl font-semibold tracking-tight mb-3">Boundary Condition Engineering</h3>
+                <p class="text-[#F4F1E8]/75 text-[15px] mb-6">Theoretical physics framework focused on boundary QED, heat kernel coefficients, Casimir forces, and rigorous falsification of anomalous propulsion claims.</p>
+                <div class="flex gap-2 mb-7 flex-wrap">
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">Physics</span>
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">QED</span>
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">Pre-registered</span>
                 </div>
-                <div class="flex gap-3">
-                    <a href="#" class="flex-1 text-center py-3 rounded-2xl border border-white/15 text-sm font-medium hover:bg-white/5 transition-colors">Papers</a>
-                    <a href="#" class="flex-1 text-center py-3 rounded-2xl bg-white/90 text-[#071923] text-sm font-semibold hover:bg-[#12C9B7] hover:text-white transition-colors">Coming soon</a>
+                <div class="flex gap-3 text-sm">
+                    <a href="#" class="flex-1 text-center py-[13px] rounded-2xl border border-white/15 hover:bg-white/5">Papers</a>
+                    <a href="#" class="flex-1 text-center py-[13px] rounded-2xl bg-white text-[#071923] font-semibold hover:bg-[#12C9B7] hover:text-white">Coming soon</a>
                 </div>
             </div>
-        </div>
 
-        <div class="mt-8 text-center text-sm text-[#F4F1E8]/50">
-            More projects: Bluebonnet Studio, Big Context Co., Snakepit, Tugboat, and private research repos.
+            <!-- Tugboat -->
+            <div class="project-card glass rounded-3xl p-8 premium-card">
+                <div class="flex justify-between mb-5">
+                    <div class="w-11 h-11 rounded-2xl bg-[#0B6E69] flex items-center justify-center"><i class="fa-solid fa-route text-white text-2xl"></i></div>
+                    <span class="font-mono text-[10px] px-3 py-1 rounded-full border border-white/15 self-start">ACTIVE</span>
+                </div>
+                <h3 class="text-3xl font-semibold tracking-tight mb-3">Tugboat</h3>
+                <p class="text-[#F4F1E8]/75 text-[15px] mb-6">Declarative agent routing and orchestration layer. Companion to Mnemosyne for intelligent tool selection, state management, and future-state prediction.</p>
+                <div class="flex gap-2 mb-7 flex-wrap">
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">Agents</span>
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">Orchestration</span>
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">Routing</span>
+                </div>
+                <div class="flex gap-3 text-sm">
+                    <a href="#" class="flex-1 text-center py-[13px] rounded-2xl border border-white/15 hover:bg-white/5">Details</a>
+                    <a href="#" class="flex-1 text-center py-[13px] rounded-2xl bg-white text-[#071923] font-semibold hover:bg-[#12C9B7] hover:text-white">Soon</a>
+                </div>
+            </div>
+
+            <!-- Bluebonnet Studio -->
+            <div class="project-card glass rounded-3xl p-8 premium-card">
+                <div class="flex justify-between mb-5">
+                    <div class="w-11 h-11 rounded-2xl bg-[#F97316] flex items-center justify-center"><i class="fa-solid fa-palette text-[#071923] text-2xl"></i></div>
+                    <span class="font-mono text-[10px] px-3 py-1 rounded-full border border-white/15 self-start">ACTIVE</span>
+                </div>
+                <h3 class="text-3xl font-semibold tracking-tight mb-3">Bluebonnet Studio</h3>
+                <p class="text-[#F4F1E8]/75 text-[15px] mb-6">Web design and digital experiences studio based in Oklahoma City. Focused on clean, high-performing sites for technical founders and researchers.</p>
+                <div class="flex gap-2 mb-7 flex-wrap">
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">Web Design</span>
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">Branding</span>
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">Webflow</span>
+                </div>
+                <div class="flex gap-3 text-sm">
+                    <a href="#" class="flex-1 text-center py-[13px] rounded-2xl border border-white/15 hover:bg-white/5">Site</a>
+                    <a href="#" class="flex-1 text-center py-[13px] rounded-2xl bg-white text-[#071923] font-semibold hover:bg-[#12C9B7] hover:text-white">Work</a>
+                </div>
+            </div>
+
+            <!-- Reality Research -->
+            <div class="project-card glass rounded-3xl p-8 premium-card">
+                <div class="flex justify-between mb-5">
+                    <div class="w-11 h-11 rounded-2xl bg-[#0B6E69] flex items-center justify-center"><i class="fa-solid fa-flask text-white text-2xl"></i></div>
+                    <span class="font-mono text-[10px] px-3 py-1 rounded-full border border-white/15 self-start">ONGOING</span>
+                </div>
+                <h3 class="text-3xl font-semibold tracking-tight mb-3">Reality Research Program</h3>
+                <p class="text-[#F4F1E8]/75 text-[15px] mb-6">Long-term inquiry into the nature of reality through theoretical physics (BCE), consciousness technology, and AI-augmented adversarial research.</p>
+                <div class="flex gap-2 mb-7 flex-wrap">
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">Physics</span>
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">Consciousness</span>
+                    <span class="text-xs px-3 py-1 bg-white/5 rounded-full border border-white/10">AI Research</span>
+                </div>
+                <div class="flex gap-3 text-sm">
+                    <a href="#" class="flex-1 text-center py-[13px] rounded-2xl border border-white/15 hover:bg-white/5">Overview</a>
+                    <a href="#" class="flex-1 text-center py-[13px] rounded-2xl bg-white text-[#071923] font-semibold hover:bg-[#12C9B7] hover:text-white">Papers</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Principles -->
     <section id="principles" class="border-y border-white/10 bg-[#111827] py-16">
         <div class="max-w-5xl mx-auto px-8">
-            <div class="max-w-2xl mb-12">
-                <div class="uppercase tracking-[3px] text-xs text-[#12C9B7] font-mono mb-3">CHAPTER 02 — OPERATING SYSTEM</div>
+            <div class="max-w-2xl mb-10">
+                <div class="font-mono text-xs tracking-[3px] text-[#12C9B7] mb-2">CHAPTER 02 — FOUNDATION</div>
                 <h2 class="section-header font-display tracking-tight">Operating Principles</h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="glass rounded-3xl p-8">
-                    <div class="text-[#12C9B7] text-4xl mb-6"><i class="fa-solid fa-laptop-house"></i></div>
-                    <h4 class="font-semibold text-xl mb-3">Local-first by default</h4>
-                    <p class="text-[#F4F1E8]/75">Data and computation stay on your machine whenever possible. Privacy, speed, and ownership as non-negotiables.</p>
+                    <div class="text-[#12C9B7] text-4xl mb-5"><i class="fa-solid fa-laptop-house"></i></div>
+                    <h4 class="font-semibold text-xl mb-2.5">Local-first by default</h4>
+                    <p class="text-[#F4F1E8]/75">Computation and data belong on your machine. Speed, privacy, and ownership are table stakes.</p>
                 </div>
                 <div class="glass rounded-3xl p-8">
-                    <div class="text-[#12C9B7] text-4xl mb-6"><i class="fa-solid fa-search"></i></div>
-                    <h4 class="font-semibold text-xl mb-3">Auditable & falsifiable</h4>
-                    <p class="text-[#F4F1E8]/75">Every claim, system, and model must be inspectable. Strong preference for pre-registration and ruthless self-scrutiny.</p>
+                    <div class="text-[#12C9B7] text-4xl mb-5"><i class="fa-solid fa-search"></i></div>
+                    <h4 class="font-semibold text-xl mb-2.5">Auditable & falsifiable</h4>
+                    <p class="text-[#F4F1E8]/75">Every system and claim must be inspectable. Pre-registration and ruthless scrutiny are non-negotiable.</p>
                 </div>
                 <div class="glass rounded-3xl p-8">
-                    <div class="text-[#12C9B7] text-4xl mb-6"><i class="fa-solid fa-user-shield"></i></div>
-                    <h4 class="font-semibold text-xl mb-3">Human-centered AI</h4>
-                    <p class="text-[#F4F1E8]/75">AI should amplify human agency and taste, not replace it. Tools that feel like extensions of the self.</p>
+                    <div class="text-[#12C9B7] text-4xl mb-5"><i class="fa-solid fa-user-shield"></i></div>
+                    <h4 class="font-semibold text-xl mb-2.5">Human-centered systems</h4>
+                    <p class="text-[#F4F1E8]/75">AI should extend human taste and agency. Tools that feel like natural extensions of the self.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Personal Edge -->
+    <!-- The Edge -->
     <section id="edge" class="max-w-5xl mx-auto px-8 py-20">
-        <div class="grid md:grid-cols-12 gap-x-12 items-center">
+        <div class="grid md:grid-cols-12 gap-x-14">
             <div class="md:col-span-5 mb-10 md:mb-0">
                 <div class="sticky top-24">
-                    <div class="uppercase tracking-[3px] text-xs text-[#12C9B7] font-mono mb-3">CHAPTER 03 — THE EDGE</div>
-                    <h2 class="section-header font-display tracking-tight leading-none">Why this<br>matters to me.</h2>
+                    <div class="font-mono text-xs tracking-[3px] text-[#12C9B7] mb-2">CHAPTER 03 — THE EDGE</div>
+                    <h2 class="section-header font-display tracking-tight leading-[0.95]">Why this<br>matters.</h2>
                 </div>
             </div>
-            <div class="md:col-span-7 text-lg text-[#F4F1E8]/80 space-y-6">
-                <p>I’m an only child from a small Christian school in Austin who triple-majored at Baylor while competing in multiple sports and playing music. After a period of real collapse in 2023–2024, I rebuilt with intention — moving to Oklahoma City, training for Ironman-distance events, and committing to full-time research into the nature of reality, memory, and useful systems.</p>
-                <p>My north star is simple: <span class="font-medium text-[#F4F1E8]">build tools and systems that help ambitious people win without losing their humanity</span>. That shows up in AI agent memory, consciousness technology, theoretical physics, and the way I train, design, and live.</p>
-                <div class="pt-4 flex flex-wrap gap-3">
-                    <div class="inline-flex items-center px-5 h-10 rounded-full border border-white/15 text-sm">Endurance athlete</div>
-                    <div class="inline-flex items-center px-5 h-10 rounded-full border border-white/15 text-sm">Dog dad (Gatsby + Tucker)</div>
-                    <div class="inline-flex items-center px-5 h-10 rounded-full border border-white/15 text-sm">ATX roots</div>
-                </div>
+            <div class="md:col-span-7 text-[17px] text-[#F4F1E8]/80 space-y-6">
+                <p>Only child from a small Austin Christian school. Triple-majored at Baylor in 4 years while competing in multiple sports and playing music. After a real collapse in 2023–2024, I moved to Oklahoma City and rebuilt with intention — endurance training, deep research, and a commitment to building systems that help ambitious people win without losing their humanity.</p>
+                <p>My work lives at the intersection of <span class="font-medium text-[#F4F1E8]">theoretical physics, advanced AI memory systems, consciousness technology, and personal operating systems</span>. The through-line is always the same: disciplined will applied to hard problems.</p>
             </div>
         </div>
     </section>
@@ -311,70 +300,49 @@
     <!-- Connect -->
     <section id="connect" class="border-t border-white/10 bg-[#111827] py-16">
         <div class="max-w-3xl mx-auto px-8 text-center">
-            <div class="uppercase tracking-[3px] text-xs text-[#12C9B7] font-mono mb-4">CHAPTER 04 — CONNECTION</div>
-            <h2 class="text-6xl font-semibold tracking-tighter mb-6 font-display">Let’s build something<br>that actually matters.</h2>
-            <p class="text-xl text-[#F4F1E8]/75 max-w-md mx-auto mb-10">Whether you’re working on ambitious AI systems, physics research, consciousness tech, or just want to talk shop about winning life on your own terms — I’m open.</p>
+            <div class="font-mono text-xs tracking-[3px] text-[#12C9B7] mb-4">CHAPTER 04 — CONNECTION</div>
+            <h2 class="text-6xl font-semibold tracking-[-2.5px] mb-6 font-display">Let’s build something<br>that actually matters.</h2>
+            <p class="text-xl text-[#F4F1E8]/75 max-w-md mx-auto mb-10">Whether you’re working on ambitious AI systems, physics research, consciousness tech, or just want to talk about winning on your own terms — I’m open.</p>
 
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://x.com/atxgreene" target="_blank"
-                   class="inline-flex items-center justify-center gap-x-3 px-10 py-4 rounded-2xl bg-[#12C9B7] text-[#071923] font-semibold text-lg hover:bg-[#0B6E69] hover:text-white transition-all">
-                    <i class="fa-brands fa-x-twitter"></i>
-                    <span>Message on X</span>
+                <a href="https://x.com/atxgreene" target="_blank" class="inline-flex items-center justify-center gap-x-3 px-10 py-4 rounded-2xl bg-[#12C9B7] text-[#071923] font-semibold text-lg hover:bg-[#0B6E69] hover:text-white transition-all">
+                    Message on X
                 </a>
-                <a href="https://github.com/atxgreene/fantastic-disco/issues" target="_blank"
-                   class="inline-flex items-center justify-center gap-x-3 px-10 py-4 rounded-2xl border border-white/20 hover:bg-white/5 font-medium text-lg transition-all">
+                <a href="https://github.com/atxgreene/fantastic-disco/issues" target="_blank" class="inline-flex items-center justify-center gap-x-3 px-10 py-4 rounded-2xl border border-white/20 hover:bg-white/5 font-medium text-lg transition-all">
                     Open an issue
                 </a>
             </div>
 
-            <div class="mt-14 text-xs tracking-[3px] text-[#F4F1E8]/40 font-mono">
+            <div class="mt-14 text-xs tracking-[4px] text-[#F4F1E8]/40 font-mono">
                 OKLAHOMA CITY • AUSTIN J. GREENE • 2026
             </div>
         </div>
     </section>
 
-    <footer class="border-t border-white/10 py-8 text-center text-xs text-[#F4F1E8]/40">
+    <footer class="border-t border-white/10 py-9 text-center text-xs text-[#F4F1E8]/40">
         <div class="max-w-7xl mx-auto px-8">
             Made with intention in Oklahoma City.<br>
-            <span class="font-mono">ATXGreene • Operator · Builder · Researcher</span>
+            <span class="font-mono tracking-widest">ATXGreene • Operator · Builder · Researcher</span>
         </div>
     </footer>
 
     <script>
-        function initTailwind() {
-            // Placeholder for future config
-        }
-
         function initScrollSpy() {
-            const sections = ['work', 'principles', 'edge', 'connect'];
+            const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('nav a[href^="#"]');
 
             window.addEventListener('scroll', () => {
                 let current = '';
-                sections.forEach(sectionId => {
-                    const section = document.getElementById(sectionId);
-                    if (section) {
-                        const sectionTop = section.getBoundingClientRect().top;
-                        if (sectionTop <= 180) {
-                            current = sectionId;
-                        }
-                    }
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    if (sectionTop <= 160) current = section.getAttribute('id');
                 });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('nav-active');
-                    if (link.getAttribute('href') === '#' + current) {
-                        link.classList.add('nav-active');
-                    }
-                });
+                navLinks.forEach(link => link.classList.remove('!text-[#12C9B7]'));
+                const activeLink = document.querySelector(`nav a[href="#${current}"]`);
+                if (activeLink) activeLink.classList.add('!text-[#12C9B7]');
             });
         }
-
-        window.onload = function() {
-            initTailwind();
-            initScrollSpy();
-            console.log('%c[ATXGreene] Portfolio initialized with new brand system.', 'color:#12C9B7; font-size:10px');
-        };
+        window.onload = () => { initScrollSpy(); };
     </script>
 </body>
 </html>
