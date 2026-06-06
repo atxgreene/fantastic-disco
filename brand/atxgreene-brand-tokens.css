@@ -1,0 +1,20 @@
+:root {
+  --color-deep-teal: #0B6E69;
+  --color-electric-teal: #12C9B7;
+  --color-burnt-orange: #F97316;
+  --color-solar-orange: #FFB45B;
+  --color-midnight-navy: #071923;
+  --color-charcoal: #111827;
+  --color-bone: #F4F1E8;
+  --color-mist: #D7F3EF;
+  --color-slate: #64748B;
+  --color-signal-green: #7CFFB2;
+
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", "SF Pro Text", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", ui-monospace, monospace;
+
+  --radius-card: 24px;
+  --radius-button: 999px;
+  --shadow-soft: 0 24px 80px rgba(7, 25, 35, 0.24);
+}

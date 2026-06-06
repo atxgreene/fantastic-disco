@@ -1,0 +1,12 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ATXGreene monogram</title>
+  <desc id="desc">Circular ATX monogram mark in teal, orange, and bone.</desc>
+  <rect width="512" height="512" rx="112" fill="#071923"/>
+  <circle cx="256" cy="256" r="164" fill="#0B6E69" opacity="0.42"/>
+  <circle cx="256" cy="256" r="134" stroke="#12C9B7" stroke-width="16"/>
+  <path d="M154 339L226 157H260L332 339H290L276 302H211L197 339H154ZM222 267H265L244 208L222 267Z" fill="#F4F1E8"/>
+  <path d="M300 174H416V213H378V351H339V213H300V174Z" fill="#F97316"/>
+  <path d="M108 174L157 243L205 174H252L183 260L256 351H206L156 285L107 351H60L132 260L62 174H108Z" fill="#F4F1E8" opacity="0.96"/>
+  <path d="M102 105C143 65 199 43 256 43C313 43 369 65 410 105" stroke="#FFB45B" stroke-width="10" stroke-linecap="round" opacity="0.95"/>
+  <path d="M410 407C369 447 313 469 256 469C199 469 143 447 102 407" stroke="#12C9B7" stroke-width="10" stroke-linecap="round" opacity="0.95"/>
+</svg>

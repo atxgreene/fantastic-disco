@@ -1,0 +1,16 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ATXGreene logo</title>
+  <desc id="desc">A teal and orange monogram logo for Austin Greene's personal portfolio.</desc>
+  <rect width="1200" height="360" rx="48" fill="#071923"/>
+  <circle cx="174" cy="180" r="92" fill="#0B6E69" opacity="0.32"/>
+  <circle cx="174" cy="180" r="68" stroke="#12C9B7" stroke-width="8"/>
+  <path d="M132 219L174 111L216 219H192L183 195H165L156 219H132ZM171 173H177L174 163L171 173Z" fill="#F4F1E8"/>
+  <path d="M220 130H280V154H262V230H238V154H220V130Z" fill="#F97316"/>
+  <path d="M293 130L320 168L346 130H375L336 181L377 230H347L319 194L292 230H263L303 180L264 130H293Z" fill="#F4F1E8"/>
+  <path d="M419 125C451 108 493 113 518 139L496 158C480 143 456 141 438 152C414 166 405 198 420 222C437 250 479 253 500 228V207H456V181H532V239C506 277 446 288 405 260C361 230 357 158 419 125Z" fill="#F4F1E8"/>
+  <text x="405" y="183" fill="#12C9B7" font-family="Space Grotesk, Inter, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="-2">ATXGreene</text>
+  <text x="409" y="234" fill="#F4F1E8" font-family="IBM Plex Mono, SFMono-Regular, monospace" font-size="24" letter-spacing="4">OPERATOR · BUILDER · RESEARCHER</text>
+  <path d="M936 135C1000 156 1025 215 1001 271C1066 243 1094 181 1061 124C1030 70 963 62 910 91C940 97 963 113 979 136C965 131 951 130 936 135Z" fill="#F97316" opacity="0.92"/>
+  <path d="M900 265C843 244 816 191 836 139C779 169 755 230 790 282C821 328 880 336 929 310C904 304 883 292 868 273C878 276 889 273 900 265Z" fill="#12C9B7" opacity="0.9"/>
+  <path d="M844 180C880 129 943 120 987 161C953 151 914 163 889 198C866 229 862 265 875 292C833 263 813 225 844 180Z" fill="#F4F1E8" opacity="0.18"/>
+</svg>

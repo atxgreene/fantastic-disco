@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ATXGreene.io Brand Cheat Sheet</title>
+  <style>
+    :root {
+  --color-deep-teal: #0B6E69;
+  --color-electric-teal: #12C9B7;
+  --color-burnt-orange: #F97316;
+  --color-solar-orange: #FFB45B;
+  --color-midnight-navy: #071923;
+  --color-charcoal: #111827;
+  --color-bone: #F4F1E8;
+  --color-mist: #D7F3EF;
+  --color-slate: #64748B;
+  --color-signal-green: #7CFFB2;
+
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", "SF Pro Text", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", ui-monospace, monospace;
+
+  --radius-card: 24px;
+  --radius-button: 999px;
+  --shadow-soft: 0 24px 80px rgba(7, 25, 35, 0.24);
+}
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(18,201,183,.20), transparent 34rem),
+        radial-gradient(circle at top right, rgba(249,115,22,.22), transparent 30rem),
+        var(--color-midnight-navy);
+      color: var(--color-bone);
+      font-family: var(--font-body);
+      line-height: 1.55;
+    }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 56px 24px 80px; }
+    header {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+    .eyebrow {
+      color: var(--color-electric-teal);
+      font-family: var(--font-mono);
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 7vw, 92px);
+      line-height: .9;
+      letter-spacing: -0.06em;
+      margin: 12px 0 18px;
+    }
+    h2 {
+      font-family: var(--font-display);
+      font-size: 30px;
+      margin: 0 0 16px;
+      letter-spacing: -0.035em;
+    }
+    h3 {
+      font-family: var(--font-display);
+      margin: 0 0 8px;
+      letter-spacing: -0.025em;
+    }
+    p { color: rgba(244,241,232,.82); margin: 0 0 14px; }
+    .hero-card, .card {
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow-soft);
+      border-radius: var(--radius-card);
+      backdrop-filter: blur(14px);
+    }
+    .hero-card { padding: 28px; }
+    .hero-card svg { width: 100%; height: auto; border-radius: 24px; }
+    .grid { display: grid; gap: 18px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .card { padding: 24px; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .pill {
+      border: 1px solid rgba(18,201,183,.32);
+      background: rgba(18,201,183,.09);
+      color: var(--color-bone);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+    .swatch {
+      min-height: 122px;
+      border-radius: 20px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      border: 1px solid rgba(255,255,255,.14);
+      color: #fff;
+    }
+    .swatch.light { color: #071923; }
+    .name { font-weight: 800; }
+    .hex { font-family: var(--font-mono); font-size: 13px; opacity: .86; }
+    .logo-row { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; align-items: stretch; }
+    .logo-box {
+      background: rgba(7,25,35,.74);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 24px;
+      padding: 18px;
+      display: grid;
+      place-items: center;
+    }
+    .logo-box svg { max-width: 100%; height: auto; }
+    code, pre {
+      font-family: var(--font-mono);
+      color: var(--color-mist);
+    }
+    pre {
+      overflow: auto;
+      background: rgba(0,0,0,.24);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 18px;
+      padding: 16px;
+      font-size: 13px;
+    }
+    .orange { color: var(--color-burnt-orange); }
+    .teal { color: var(--color-electric-teal); }
+    .rule { height: 1px; background: linear-gradient(90deg, transparent, rgba(18,201,183,.6), rgba(249,115,22,.55), transparent); margin: 34px 0; }
+    .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    ul { margin: 0; padding-left: 20px; color: rgba(244,241,232,.82); }
+    li { margin: 8px 0; }
+    @media (max-width: 860px) {
+      header, .grid.two, .grid.three, .grid.four, .logo-row, .do-dont { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <section>
+        <div class="eyebrow">Personal Portfolio Brand System</div>
+        <h1>ATX<span class="teal">Greene</span><span class="orange">.io</span></h1>
+        <p><strong>Core positioning:</strong> Austin-rooted operator, AI systems builder, endurance athlete, and independent researcher turning messy problems into useful operating systems.</p>
+        <div class="pill-row">
+          <span class="pill">Operator</span>
+          <span class="pill">Builder</span>
+          <span class="pill">Researcher</span>
+          <span class="pill">Hybrid Athlete</span>
+          <span class="pill">Local-first AI</span>
+        </div>
+      </section>
+      <aside class="hero-card">
+        <svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ATXGreene logo</title>
+  <desc id="desc">A teal and orange monogram logo for Austin Greene's personal portfolio.</desc>
+  <rect width="1200" height="360" rx="48" fill="#071923"/>
+  <circle cx="174" cy="180" r="92" fill="#0B6E69" opacity="0.32"/>
+  <circle cx="174" cy="180" r="68" stroke="#12C9B7" stroke-width="8"/>
+  <path d="M132 219L174 111L216 219H192L183 195H165L156 219H132ZM171 173H177L174 163L171 173Z" fill="#F4F1E8"/>
+  <path d="M220 130H280V154H262V230H238V154H220V130Z" fill="#F97316"/>
+  <path d="M293 130L320 168L346 130H375L336 181L377 230H347L319 194L292 230H263L303 180L264 130H293Z" fill="#F4F1E8"/>
+  <path d="M419 125C451 108 493 113 518 139L496 158C480 143 456 141 438 152C414 166 405 198 420 222C437 250 479 253 500 228V207H456V181H532V239C506 277 446 288 405 260C361 230 357 158 419 125Z" fill="#F4F1E8"/>
+  <text x="405" y="183" fill="#12C9B7" font-family="Space Grotesk, Inter, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="-2">ATXGreene</text>
+  <text x="409" y="234" fill="#F4F1E8" font-family="IBM Plex Mono, SFMono-Regular, monospace" font-size="24" letter-spacing="4">OPERATOR · BUILDER · RESEARCHER</text>
+  <path d="M936 135C1000 156 1025 215 1001 271C1066 243 1094 181 1061 124C1030 70 963 62 910 91C940 97 963 113 979 136C965 131 951 130 936 135Z" fill="#F97316" opacity="0.92"/>
+  <path d="M900 265C843 244 816 191 836 139C779 169 755 230 790 282C821 328 880 336 929 310C904 304 883 292 868 273C878 276 889 273 900 265Z" fill="#12C9B7" opacity="0.9"/>
+  <path d="M844 180C880 129 943 120 987 161C953 151 914 163 889 198C866 229 862 265 875 292C833 263 813 225 844 180Z" fill="#F4F1E8" opacity="0.18"/>
+</svg>
+
+      </aside>
+    </header>
+
+    <div class="rule"></div>
+
+    <section class="grid two">
+      <div class="card">
+        <h2>Brand Essence</h2>
+        <p><strong>One-liner:</strong> Building the personal operating system for ambition, useful AI, and human performance.</p>
+        <p><strong>Personality:</strong> disciplined, direct, curious, technical, slightly mythic, Austin/Texas grounded, with enough humor to feel human.</p>
+        <p><strong>Vibe:</strong> Apple-clean portfolio meets Palantir mission-control board, with a little endurance-race grit and ATX warmth.</p>
+      </div>
+      <div class="card">
+        <h2>Tagline Options</h2>
+        <ul>
+          <li><strong>Primary:</strong> Build the edge. Keep the soul.</li>
+          <li><strong>Technical:</strong> Systems for ambition, memory, and momentum.</li>
+          <li><strong>Portfolio:</strong> Operator. Builder. Researcher.</li>
+          <li><strong>Personal:</strong> Why not me?</li>
+          <li><strong>Mythic:</strong> A wannabe Icarus, building better wings.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px;">
+      <h2>Color Palette</h2>
+      <div class="grid four">
+        <div class="swatch " style="background:#0B6E69;"><span class="name">Deep Teal</span><span class="hex">#0B6E69</span></div><div class="swatch " style="background:#12C9B7;"><span class="name">Electric Teal</span><span class="hex">#12C9B7</span></div><div class="swatch " style="background:#F97316;"><span class="name">Burnt Orange</span><span class="hex">#F97316</span></div><div class="swatch light" style="background:#FFB45B;"><span class="name">Solar Orange</span><span class="hex">#FFB45B</span></div><div class="swatch " style="background:#071923;"><span class="name">Midnight Navy</span><span class="hex">#071923</span></div><div class="swatch " style="background:#111827;"><span class="name">Charcoal</span><span class="hex">#111827</span></div><div class="swatch light" style="background:#F4F1E8;"><span class="name">Bone</span><span class="hex">#F4F1E8</span></div><div class="swatch light" style="background:#D7F3EF;"><span class="name">Mist</span><span class="hex">#D7F3EF</span></div><div class="swatch " style="background:#64748B;"><span class="name">Slate</span><span class="hex">#64748B</span></div><div class="swatch light" style="background:#7CFFB2;"><span class="name">Signal Green</span><span class="hex">#7CFFB2</span></div>
+      </div>
+    </section>
+
+    <section class="grid two" style="margin-top:18px;">
+      <div class="card">
+        <h2>Typography</h2>
+        <p><strong>Display:</strong> Space Grotesk — for headings, nav, project titles.</p>
+        <p><strong>Body:</strong> Inter or SF Pro — for clean portfolio readability.</p>
+        <p><strong>Code/Data:</strong> IBM Plex Mono — for project specs, coordinates, changelogs, terminal blocks.</p>
+      </div>
+      <div class="card">
+        <h2>Logo Concept</h2>
+        <p><strong>Mark:</strong> circular ATX monogram with teal ring, orange accent, and partial laurel/orbit arcs.</p>
+        <p><strong>Meaning:</strong> ATX roots, operator loop, endurance cycle, AI systems orbit, and personal growth.</p>
+        <p><strong>Use:</strong> monogram for favicon/social avatar; full lockup for hero section, résumé header, GitHub profile readme, and personal landing page.</p>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px;">
+      <h2>Logo Assets</h2>
+      <div class="logo-row">
+        <div class="logo-box"><svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ATXGreene logo</title>
+  <desc id="desc">A teal and orange monogram logo for Austin Greene's personal portfolio.</desc>
+  <rect width="1200" height="360" rx="48" fill="#071923"/>
+  <circle cx="174" cy="180" r="92" fill="#0B6E69" opacity="0.32"/>
+  <circle cx="174" cy="180" r="68" stroke="#12C9B7" stroke-width="8"/>
+  <path d="M132 219L174 111L216 219H192L183 195H165L156 219H132ZM171 173H177L174 163L171 173Z" fill="#F4F1E8"/>
+  <path d="M220 130H280V154H262V230H238V154H220V130Z" fill="#F97316"/>
+  <path d="M293 130L320 168L346 130H375L336 181L377 230H347L319 194L292 230H263L303 180L264 130H293Z" fill="#F4F1E8"/>
+  <path d="M419 125C451 108 493 113 518 139L496 158C480 143 456 141 438 152C414 166 405 198 420 222C437 250 479 253 500 228V207H456V181H532V239C506 277 446 288 405 260C361 230 357 158 419 125Z" fill="#F4F1E8"/>
+  <text x="405" y="183" fill="#12C9B7" font-family="Space Grotesk, Inter, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="-2">ATXGreene</text>
+  <text x="409" y="234" fill="#F4F1E8" font-family="IBM Plex Mono, SFMono-Regular, monospace" font-size="24" letter-spacing="4">OPERATOR · BUILDER · RESEARCHER</text>
+  <path d="M936 135C1000 156 1025 215 1001 271C1066 243 1094 181 1061 124C1030 70 963 62 910 91C940 97 963 113 979 136C965 131 951 130 936 135Z" fill="#F97316" opacity="0.92"/>
+  <path d="M900 265C843 244 816 191 836 139C779 169 755 230 790 282C821 328 880 336 929 310C904 304 883 292 868 273C878 276 889 273 900 265Z" fill="#12C9B7" opacity="0.9"/>
+  <path d="M844 180C880 129 943 120 987 161C953 151 914 163 889 198C866 229 862 265 875 292C833 263 813 225 844 180Z" fill="#F4F1E8" opacity="0.18"/>
+</svg>
+</div>
+        <div class="logo-box"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ATXGreene monogram</title>
+  <desc id="desc">Circular ATX monogram mark in teal, orange, and bone.</desc>
+  <rect width="512" height="512" rx="112" fill="#071923"/>
+  <circle cx="256" cy="256" r="164" fill="#0B6E69" opacity="0.42"/>
+  <circle cx="256" cy="256" r="134" stroke="#12C9B7" stroke-width="16"/>
+  <path d="M154 339L226 157H260L332 339H290L276 302H211L197 339H154ZM222 267H265L244 208L222 267Z" fill="#F4F1E8"/>
+  <path d="M300 174H416V213H378V351H339V213H300V174Z" fill="#F97316"/>
+  <path d="M108 174L157 243L205 174H252L183 260L256 351H206L156 285L107 351H60L132 260L62 174H108Z" fill="#F4F1E8" opacity="0.96"/>
+  <path d="M102 105C143 65 199 43 256 43C313 43 369 65 410 105" stroke="#FFB45B" stroke-width="10" stroke-linecap="round" opacity="0.95"/>
+  <path d="M410 407C369 447 313 469 256 469C199 469 143 447 102 407" stroke="#12C9B7" stroke-width="10" stroke-linecap="round" opacity="0.95"/>
+</svg>
+</div>
+      </div>
+    </section>
+
+    <section class="grid two" style="margin-top:18px;">
+      <div class="card">
+        <h2>Voice Rules</h2>
+        <ul>
+          <li>Lead with outcomes and earned competence.</li>
+          <li>Write like an operator: clear, direct, specific.</li>
+          <li>Use mythic language sparingly as flavor, not costume.</li>
+          <li>Make AI feel practical, local-first, useful, and human.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Homepage Sections</h2>
+        <ul>
+          <li>Hero: one-liner, CTA, current build focus.</li>
+          <li>Projects: B.E.N., Mnemosyne, Tugboat, Snakepit, Bluebonnet.</li>
+          <li>Operating principles: local-first, auditable, human-centered.</li>
+          <li>Personal edge: endurance, dogs, Austin roots, humor.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px;">
+      <h2>CSS Tokens</h2>
+      <pre>:root {
+  --color-deep-teal: #0B6E69;
+  --color-electric-teal: #12C9B7;
+  --color-burnt-orange: #F97316;
+  --color-solar-orange: #FFB45B;
+  --color-midnight-navy: #071923;
+  --color-charcoal: #111827;
+  --color-bone: #F4F1E8;
+  --color-mist: #D7F3EF;
+  --color-slate: #64748B;
+  --color-signal-green: #7CFFB2;
+
+  --font-display: &quot;Space Grotesk&quot;, &quot;Inter&quot;, system-ui, sans-serif;
+  --font-body: &quot;Inter&quot;, &quot;SF Pro Text&quot;, system-ui, sans-serif;
+  --font-mono: &quot;IBM Plex Mono&quot;, &quot;SFMono-Regular&quot;, ui-monospace, monospace;
+
+  --radius-card: 24px;
+  --radius-button: 999px;
+  --shadow-soft: 0 24px 80px rgba(7, 25, 35, 0.24);
+}</pre>
+    </section>
+
+    <section class="do-dont" style="margin-top:18px;">
+      <div class="card">
+        <h2>Do</h2>
+        <ul>
+          <li>Use dark navy backgrounds with teal/orange highlights.</li>
+          <li>Use monospaced labels for system/project details.</li>
+          <li>Show projects as operating systems, not random experiments.</li>
+          <li>Use photos/art that feel field-tested, technical, and personal.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Don’t</h2>
+        <ul>
+          <li>Overdo neon cyberpunk or generic AI gradients.</li>
+          <li>Make it too corporate or too meme-heavy.</li>
+          <li>Use orange as the dominant color; it should be the signal.</li>
+          <li>Hide the human parts: dogs, racing, Austin roots, humor.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
